@@ -13,6 +13,10 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [GITHUB_TOKEN merges don't trigger other push-triggered workflows](entries/infra/github-actions-token-recursion-blocks-post-merge-workflows.md) — Auto-merge via GITHUB_TOKEN skips downstream push workflows on the same branch
 - [Only one quota per user is ever consumed; execution_time bills inter-chunk elapsed only](entries/infra/clickhouse-quota-single-quota-per-user.md) — Attaching multiple quotas to a user silently does nothing; execution_time skips single-block queries
 
+## languages
+
+- [HCL logical operators do not short-circuit](entries/languages/hcl-logical-operators-no-short-circuit.md) — "a == null || length(a) errors on null; guard with a ternary instead of ||"
+
 ## preferences
 
 - [No decorative comments in code](entries/preferences/code-comment-style.md) — Never write banner dividers or comments that restate code; only short comments for non-obvious WHY
