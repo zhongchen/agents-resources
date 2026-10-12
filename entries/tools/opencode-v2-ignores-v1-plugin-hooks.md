@@ -1,6 +1,6 @@
 ---
 title: opencode v2 loads v1 plugins but silently never calls their hooks
-summary: opencode 2.x needs export default { id, setup(ctx) } and ctx.tool.hook; v1 hooks and the server property are dead code
+summary: opencode 2.x needs { id, setup(ctx) } and ctx.tool.hook; v1 hooks and the server property never run
 tags: [opencode, plugins]
 date: 2026-10-12
 confidence: confirmed
