@@ -29,5 +29,8 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [Herdr split naming is inverted from tmux; no native pane rotate](entries/tools/herdr-split-naming-and-rotate.md) — Herdr's split_vertical/split_horizontal are swapped vs tmux; no built-in rotate action
 - [direnv runs .envrc with PWD set to the .envrc's own directory](entries/tools/direnv-envrc-pwd-is-envrc-dir.md) — direnv runs .envrc with PWD at the .envrc's dir, not the dir you cd'd into; use $OLDPWD
 - [launchd agents run with a minimal environment](entries/tools/launchd-agent-needs-explicit-environment.md) — Homebrew and user-local bin dirs aren't in PATH by default; set PATH/HOME in the plist
+- [opencode does not hot-reload AGENTS.md replaced by rename](entries/tools/opencode-agents-md-rename-no-hot-reload.md) — Rebuilding AGENTS.md with mv leaves live sessions on the old content; write in place
+- [opencode v2 accepts an instructions array in config but never loads it](entries/tools/opencode-config-instructions-not-loaded.md) — The config schema documents the instructions field, but no code reads those files
+- [opencode v2 loads v1 plugins but silently never calls their hooks](entries/tools/opencode-v2-ignores-v1-plugin-hooks.md) — opencode 2.x needs { id, setup(ctx) } and ctx.tool.hook; v1 hooks and the server property never run
 - [rtk's `find` shell wrapper rejects `-not` and `-exec`](entries/tools/rtk-find-wrapper-no-exec-not.md) — rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/find by absolute path
 - [zsh aborts the whole command when one glob has no match](entries/tools/zsh-multi-glob-no-match-aborts-command.md) — one unmatched glob cancels the whole command, so files other globs match are never listed
