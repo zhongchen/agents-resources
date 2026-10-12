@@ -19,6 +19,10 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [Personal pull request and commit writing style](entries/preferences/pr-description-style.md) — PR rules - STE100, no em dashes, no Test plan section, no AI footer
 - [Report in ASD-STE100 Simplified Technical English](entries/preferences/reporting-style.md) — Report to Zhong only in ASD-STE100 Simplified Technical English
 
+## security
+
+- [Never commit sensitive information to GitHub repositories](entries/security/never-commit-sensitive-info.md) — No secrets or confidential data in any repo, private or public; check the staged diff first
+
 ## tools
 
 - [Herdr custom metadata tokens merge, not replace](entries/tools/herdr-metadata-tokens-merge-not-replace.md) — pane report-metadata --token values persist across calls until explicitly cleared
