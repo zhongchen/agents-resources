@@ -10,8 +10,9 @@ confidence: confirmed
 `unknown sidebar token`) when referencing a custom pane metadata token in
 `[ui.sidebar.agents].rows` or `[ui.sidebar.spaces].rows`.
 
-**Cause:** Built-in tokens (`state_icon`, `agent`, `workspace`, `tab`, ...)
-are referenced by bare name. Custom values reported through
+**Cause:** Built-in tokens (`state_icon`, `state_text`, `machine`,
+`workspace`, `tab`, `pane`, `agent`, `terminal_title`, ...) are referenced
+by bare name. Custom values reported through
 `pane report-metadata --token NAME=VALUE` must be referenced with a `$`
 prefix: `$NAME`. Writing `{ token = "branch" }` instead of
 `{ token = "$branch" }` is rejected with
