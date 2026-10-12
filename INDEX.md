@@ -9,7 +9,9 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 ## infra
 
+- [ClickHouse quota counters are per node behind a load-balanced endpoint](entries/infra/clickhouse-quota-counters-per-node.md) — Quota limits never trip through a load-balanced endpoint; counters are per node
 - [GITHUB_TOKEN merges don't trigger other push-triggered workflows](entries/infra/github-actions-token-recursion-blocks-post-merge-workflows.md) — Auto-merge via GITHUB_TOKEN skips downstream push workflows on the same branch
+- [Only one quota per user is ever consumed; execution_time bills inter-chunk elapsed only](entries/infra/clickhouse-quota-single-quota-per-user.md) — Attaching multiple quotas to a user silently does nothing; execution_time skips single-block queries
 
 ## preferences
 
@@ -22,6 +24,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [Herdr custom metadata tokens merge, not replace](entries/tools/herdr-metadata-tokens-merge-not-replace.md) — pane report-metadata --token values persist across calls until explicitly cleared
 - [Herdr has no event-subscription API; poll for state changes](entries/tools/herdr-no-push-api-must-poll.md) — herdr api only offers snapshot/schema, no watch/subscribe; live tooling must poll
 - [Herdr pane border title has no color or style support](entries/tools/herdr-pane-title-no-color.md) — Herdr pane report-metadata --title is plain text; ANSI codes get stripped
+- [Herdr sidebar `pane` token shows the pane name, not the pane ID](entries/tools/herdr-pane-token-name-not-id.md) — no built-in token renders the pane ID; add a custom $pane_id token; reload client, not server
 - [Herdr sidebar custom tokens need a $ prefix in config](entries/tools/herdr-sidebar-custom-token-dollar-prefix.md) — { token = "branch" } fails; must be { token = "$branch" } to show custom metadata
 - [Herdr split naming is inverted from tmux; no native pane rotate](entries/tools/herdr-split-naming-and-rotate.md) — Herdr's split_vertical/split_horizontal are swapped vs tmux; no built-in rotate action
 - [direnv runs .envrc with PWD set to the .envrc's own directory](entries/tools/direnv-envrc-pwd-is-envrc-dir.md) — direnv runs .envrc with PWD at the .envrc's dir, not the dir you cd'd into; use $OLDPWD
