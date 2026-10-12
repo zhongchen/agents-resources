@@ -25,6 +25,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 ## tools
 
+- [Herdr config edits need server reload; pane-status.sh edits need daemon kickstart](entries/tools/herdr-config-reload-and-daemon-kickstart.md) — UI config (sidebar rows, keybinds) is not picked up until reload-config; the pane-status bash loop holds old code until launchctl kickstart
 - [Herdr custom metadata tokens merge, not replace](entries/tools/herdr-metadata-tokens-merge-not-replace.md) — pane report-metadata --token values persist across calls until explicitly cleared
 - [Herdr has no event-subscription API; poll for state changes](entries/tools/herdr-no-push-api-must-poll.md) — herdr api only offers snapshot/schema, no watch/subscribe; live tooling must poll
 - [Herdr never resumes OpenCode v2 panes without cli.json](entries/tools/herdr-opencode-v2-needs-cli-json.md) — Stale tui.json makes herdr skip cli.json; no session ID is reported, so no resume
