@@ -1,6 +1,6 @@
 ---
 title: zsh aborts the whole command when one glob has no match
-summary: In zsh, one unmatched glob cancels the entire command at parse time, hiding files other globs would match
+summary: one unmatched glob cancels the whole command, so files other globs match are never listed
 tags: [zsh, shell, globbing]
 date: 2026-10-05
 confidence: confirmed

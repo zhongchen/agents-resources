@@ -26,5 +26,5 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [Herdr split naming is inverted from tmux; no native pane rotate](entries/tools/herdr-split-naming-and-rotate.md) — Herdr's split_vertical/split_horizontal are swapped vs tmux; no built-in rotate action
 - [direnv runs .envrc with PWD set to the .envrc's own directory](entries/tools/direnv-envrc-pwd-is-envrc-dir.md) — direnv runs .envrc with PWD at the .envrc's dir, not the dir you cd'd into; use $OLDPWD
 - [launchd agents run with a minimal environment](entries/tools/launchd-agent-needs-explicit-environment.md) — Homebrew and user-local bin dirs aren't in PATH by default; set PATH/HOME in the plist
-- [rtk's `find` shell wrapper rejects `-not` and `-exec`](entries/tools/rtk-find-wrapper-no-exec-not.md) — rtk shadows `find` as a shell function; compound predicates like -not/-exec fail, must call /usr/bin/find
-- [zsh aborts the whole command when one glob has no match](entries/tools/zsh-multi-glob-no-match-aborts-command.md) — In zsh, one unmatched glob cancels the entire command at parse time, hiding files other globs would match
+- [rtk's `find` shell wrapper rejects `-not` and `-exec`](entries/tools/rtk-find-wrapper-no-exec-not.md) — rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/find by absolute path
+- [zsh aborts the whole command when one glob has no match](entries/tools/zsh-multi-glob-no-match-aborts-command.md) — one unmatched glob cancels the whole command, so files other globs match are never listed
