@@ -1,6 +1,6 @@
 ---
 title: Herdr sidebar `pane` token shows the pane name, not the pane ID
-summary: no built-in token renders the w1:p2 ID; use a custom $pane_id token; sidebar layout is client config, server reload-config does not refresh it
+summary: no built-in token renders the pane ID; add a custom $pane_id token; reload client, not server
 tags: [herdr, terminal-multiplexer]
 date: 2026-10-11
 confidence: confirmed
