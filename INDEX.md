@@ -17,6 +17,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 - [AWS SDK v2 old sts module silently drops IRSA and uses the node role](entries/languages/aws-sdk-v2-mixed-sts-version-falls-back-to-instance-profile.md) — Mixed AWS SDK v2 versions break web identity; default chain falls back to instance profile
 - [HCL logical operators do not short-circuit](entries/languages/hcl-logical-operators-no-short-circuit.md) — "a == null || length(a) errors on null; guard with a ternary instead of ||"
+- [Pinned aws-crt must match the AWS SDK v2 awscrt.version](entries/languages/aws-crt-pin-must-match-sdk-awscrt-version.md) — Old pinned aws-crt with newer aws-crt-client fails at runtime with NoClassDefFoundError
 
 ## preferences
 
