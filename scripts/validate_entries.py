@@ -8,7 +8,7 @@ from pathlib import Path
 ENTRIES_DIR = Path("entries")
 REQUIRED_FIELDS = ["title", "summary", "tags", "date", "confidence"]
 VALID_CONFIDENCE = {"confirmed", "tentative"}
-MAX_SUMMARY_LEN = 100
+SOFT_SUMMARY_LEN = 100
 MAX_LINES = 200
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -83,8 +83,9 @@ def check_file(path):
         if field not in fm or fm[field] == "":
             errors.append(f"{path}: missing required field '{field}'")
 
-    if "summary" in fm and isinstance(fm["summary"], str) and len(fm["summary"]) > MAX_SUMMARY_LEN:
-        errors.append(f"{path}: summary longer than {MAX_SUMMARY_LEN} chars")
+    if "summary" in fm and isinstance(fm["summary"], str) and len(fm["summary"]) > SOFT_SUMMARY_LEN:
+        # A guide, not a limit: never cut essential info just to fit.
+        print(f"warning: {path}: summary is {len(fm['summary'])} chars (guide is {SOFT_SUMMARY_LEN}); keep only essential info")
 
     if "date" in fm and isinstance(fm["date"], str) and not DATE_RE.match(fm["date"]):
         errors.append(f"{path}: date must be YYYY-MM-DD")

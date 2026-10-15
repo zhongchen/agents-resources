@@ -1,6 +1,6 @@
 ---
 title: Personal pull request and commit writing style
-summary: PR/commit rules - STE100, Conventional Commits, fill all PR sections, no AI footer
+summary: PR/commit rules - STE100, Conventional Commits, squash merge, fill all PR sections, no AI footer
 tags: [git, github, communication, style, preferences, commits]
 date: 2026-10-15
 confidence: confirmed

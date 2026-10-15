@@ -26,7 +26,7 @@ Save as `entries/<topic>/<short-kebab-slug>.md`:
 ```
 ---
 title: Short, specific title
-summary: One line, <=100 chars, shown in INDEX.md
+summary: One line, about 100 chars, shown in INDEX.md
 tags: [tag1, tag2]
 date: YYYY-MM-DD
 confidence: confirmed   # or: tentative
@@ -51,6 +51,10 @@ shape instead:
 
 **Applies to:** When this convention kicks in.
 ```
+
+The 100-character summary length is a guide, not a hard limit. Keep only
+essential info. Exceed 100 when you have to. Never cut essential info just
+to fit.
 
 Keep entries under 200 lines. One idea per entry. See
 `entries/git/push-default-upstream-lands-on-main.md` for a worked technical
