@@ -38,6 +38,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [Herdr sidebar `pane` token shows the pane name, not the pane ID](entries/tools/herdr-pane-token-name-not-id.md) — no built-in token renders the pane ID; add a custom $pane_id token; reload client, not server
 - [Herdr sidebar custom tokens need a $ prefix in config](entries/tools/herdr-sidebar-custom-token-dollar-prefix.md) — { token = "branch" } fails; must be { token = "$branch" } to show custom metadata
 - [Herdr split naming is inverted from tmux; no native pane rotate](entries/tools/herdr-split-naming-and-rotate.md) — Herdr's split_vertical/split_horizontal are swapped vs tmux; no built-in rotate action
+- [Run opencode headless and read the cost of one session](entries/tools/opencode-headless-run-and-session-cost.md) — opencode run --auto -m runs without prompts; per-session cost comes only from session export
 - [crossterm sends uppercase letters with SHIFT and a raw \n as Ctrl+J](entries/tools/crossterm-shift-and-ctrl-j-modifiers.md) — A modifiers.is_empty() guard drops uppercase letters; raw-mode \n arrives as Char('j') + CONTROL
 - [direnv runs .envrc with PWD set to the .envrc's own directory](entries/tools/direnv-envrc-pwd-is-envrc-dir.md) — direnv runs .envrc with PWD at the .envrc's dir, not the dir you cd'd into; use $OLDPWD
 - [launchd agents run with a minimal environment](entries/tools/launchd-agent-needs-explicit-environment.md) — Homebrew and user-local bin dirs aren't in PATH by default; set PATH/HOME in the plist
