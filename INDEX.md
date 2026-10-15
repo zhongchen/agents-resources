@@ -21,6 +21,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 ## preferences
 
+- [Build apps in small agent sessions from a shared plan](entries/preferences/multi-session-agent-workflow.md) — Short AGENTS.md + per-session PLAN.md sections, one branch per session, owner merges
 - [No decorative comments in code](entries/preferences/code-comment-style.md) — Never write banner dividers or comments that restate code; only short comments for non-obvious WHY
 - [Personal pull request and commit writing style](entries/preferences/pr-description-style.md) — PR and commit rules - STE100, Conventional Commits, one change per commit, no AI footer
 - [Report in ASD-STE100 Simplified Technical English](entries/preferences/reporting-style.md) — Report to Zhong only in ASD-STE100 Simplified Technical English
