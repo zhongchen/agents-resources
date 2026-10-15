@@ -29,6 +29,10 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 - [Never commit sensitive information to GitHub repositories](entries/security/never-commit-sensitive-info.md) — No secrets or confidential data in any repo, private or public; check the staged diff first
 
+## testing
+
+- [Smoke-test a TUI app headlessly with tmux](entries/testing/tmux-tui-smoke-test.md) — Drive a TUI with tmux send-keys and read the screen with capture-pane; -e keeps colors
+
 ## tools
 
 - [Herdr custom metadata tokens merge, not replace](entries/tools/herdr-metadata-tokens-merge-not-replace.md) — pane report-metadata --token values persist across calls until explicitly cleared
