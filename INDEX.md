@@ -46,3 +46,4 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [opencode v2 loads v1 plugins but silently never calls their hooks](entries/tools/opencode-v2-ignores-v1-plugin-hooks.md) — opencode 2.x needs { id, setup(ctx) } and ctx.tool.hook; v1 hooks and the server property never run
 - [rtk's `find` shell wrapper rejects `-not` and `-exec`](entries/tools/rtk-find-wrapper-no-exec-not.md) — rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/find by absolute path
 - [zsh aborts the whole command when one glob has no match](entries/tools/zsh-multi-glob-no-match-aborts-command.md) — one unmatched glob cancels the whole command, so files other globs match are never listed
+- [zsh noclobber makes > fail and leaves the old file in place](entries/tools/zsh-noclobber-redirect-keeps-stale-file.md) — With noclobber, > to an existing file errors, and the next command silently reads stale data
