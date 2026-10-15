@@ -21,13 +21,19 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 ## preferences
 
+- [Build apps in small agent sessions from a shared plan](entries/preferences/multi-session-agent-workflow.md) — Short AGENTS.md + per-session PLAN.md sections, one branch per session, owner merges
+- [Few tests, high coverage](entries/preferences/few-tests-high-coverage.md) — Small test budget; table-driven tests, one mock round trip, UI snapshots; add a case before a test
 - [No decorative comments in code](entries/preferences/code-comment-style.md) — Never write banner dividers or comments that restate code; only short comments for non-obvious WHY
-- [Personal pull request and commit writing style](entries/preferences/pr-description-style.md) — PR rules - STE100, no em dashes, no Test plan section, no AI footer
+- [Personal pull request and commit writing style](entries/preferences/pr-description-style.md) — PR and commit rules - STE100, Conventional Commits, one change per commit, no AI footer
 - [Report in ASD-STE100 Simplified Technical English](entries/preferences/reporting-style.md) — Report to Zhong only in ASD-STE100 Simplified Technical English
 
 ## security
 
 - [Never commit sensitive information to GitHub repositories](entries/security/never-commit-sensitive-info.md) — No secrets or confidential data in any repo, private or public; check the staged diff first
+
+## testing
+
+- [Smoke-test a TUI app headlessly with tmux](entries/testing/tmux-tui-smoke-test.md) — Drive a TUI with tmux send-keys and read the screen with capture-pane; -e keeps colors
 
 ## tools
 
@@ -38,6 +44,8 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [Herdr sidebar `pane` token shows the pane name, not the pane ID](entries/tools/herdr-pane-token-name-not-id.md) — no built-in token renders the pane ID; add a custom $pane_id token; reload client, not server
 - [Herdr sidebar custom tokens need a $ prefix in config](entries/tools/herdr-sidebar-custom-token-dollar-prefix.md) — { token = "branch" } fails; must be { token = "$branch" } to show custom metadata
 - [Herdr split naming is inverted from tmux; no native pane rotate](entries/tools/herdr-split-naming-and-rotate.md) — Herdr's split_vertical/split_horizontal are swapped vs tmux; no built-in rotate action
+- [Run opencode headless and read the cost of one session](entries/tools/opencode-headless-run-and-session-cost.md) — opencode run --auto -m runs without prompts; per-session cost comes only from session export
+- [crossterm sends uppercase letters with SHIFT and a raw \n as Ctrl+J](entries/tools/crossterm-shift-and-ctrl-j-modifiers.md) — A modifiers.is_empty() guard drops uppercase letters; raw-mode \n arrives as Char('j') + CONTROL
 - [direnv runs .envrc with PWD set to the .envrc's own directory](entries/tools/direnv-envrc-pwd-is-envrc-dir.md) — direnv runs .envrc with PWD at the .envrc's dir, not the dir you cd'd into; use $OLDPWD
 - [launchd agents run with a minimal environment](entries/tools/launchd-agent-needs-explicit-environment.md) — Homebrew and user-local bin dirs aren't in PATH by default; set PATH/HOME in the plist
 - [opencode does not hot-reload AGENTS.md replaced by rename](entries/tools/opencode-agents-md-rename-no-hot-reload.md) — Rebuilding AGENTS.md with mv leaves live sessions on the old content; write in place
@@ -45,3 +53,4 @@ Read this file first. Open individual entries only when a topic is relevant.
 - [opencode v2 loads v1 plugins but silently never calls their hooks](entries/tools/opencode-v2-ignores-v1-plugin-hooks.md) — opencode 2.x needs { id, setup(ctx) } and ctx.tool.hook; v1 hooks and the server property never run
 - [rtk's `find` shell wrapper rejects `-not` and `-exec`](entries/tools/rtk-find-wrapper-no-exec-not.md) — rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/find by absolute path
 - [zsh aborts the whole command when one glob has no match](entries/tools/zsh-multi-glob-no-match-aborts-command.md) — one unmatched glob cancels the whole command, so files other globs match are never listed
+- [zsh noclobber makes > fail and leaves the old file in place](entries/tools/zsh-noclobber-redirect-keeps-stale-file.md) — With noclobber, > to an existing file errors, and the next command silently reads stale data
