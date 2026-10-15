@@ -68,3 +68,6 @@ entries use Rule/Why/Applies-to. No narrative, no chain-of-thought, no
 tool-specific jargon unless the entry is specifically about that tool. Cut
 anything not essential: the bank will grow large, and every token here is
 paid by every future reader.
+
+The 100-character guide for `summary` is soft. Keep only essential info, and
+exceed 100 rather than drop something essential.
