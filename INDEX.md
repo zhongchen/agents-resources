@@ -22,7 +22,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 ## preferences
 
 - [No decorative comments in code](entries/preferences/code-comment-style.md) — Never write banner dividers or comments that restate code; only short comments for non-obvious WHY
-- [Personal pull request and commit writing style](entries/preferences/pr-description-style.md) — PR rules - STE100, no em dashes, no Test plan section, no AI footer
+- [Personal pull request and commit writing style](entries/preferences/pr-description-style.md) — PR and commit rules - STE100, Conventional Commits, one change per commit, no AI footer
 - [Report in ASD-STE100 Simplified Technical English](entries/preferences/reporting-style.md) — Report to Zhong only in ASD-STE100 Simplified Technical English
 
 ## security
