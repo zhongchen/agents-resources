@@ -1,6 +1,6 @@
 ---
 title: Build apps in small agent sessions from a shared plan
-summary: Short AGENTS.md + per-session PLAN.md sections, one branch per session, owner merges
+summary: Short AGENTS.md + per-session PLAN.md sections, one PR per session, owner squash-merges
 tags: [agents, workflow, cost, planning]
 date: 2026-10-14
 confidence: confirmed
@@ -13,8 +13,12 @@ confidence: confirmed
 - Keep `docs/PLAN.md` with one section per session: files to open, scope,
   tests to add, done criteria. A session reads only its own section.
 - Start each session fresh with `Do session N from docs/PLAN.md.`
-- Each session: new branch `sN-<slug>`, commit there, do not push or
-  merge. The owner tests and merges, then the next session starts.
+- Each session: new branch `sN-<slug>`, commit there, push, open a PR,
+  do not merge. The owner tests and squash-merges, then the next session
+  starts. CI runs on the PR before the merge.
+- Pin the toolchain (e.g. `rust-toolchain.toml`) so local checks and CI
+  run the same linter version; a newer CI linter fails code that passes
+  locally.
 - End of session: tick status, add one-line decisions to PLAN.md, so the
   next session needs no chat history.
 - One feature per session. A session with several features costs much

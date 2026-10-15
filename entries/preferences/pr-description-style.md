@@ -1,6 +1,6 @@
 ---
 title: Personal pull request and commit writing style
-summary: PR and commit rules - STE100, Conventional Commits, one change per commit, no AI footer
+summary: PR and commit rules - STE100, Conventional Commits, squash merge, no AI footer
 tags: [git, github, communication, style, preferences, commits]
 date: 2026-10-14
 confidence: confirmed
@@ -22,8 +22,11 @@ confidence: confirmed
   chars, no period. Follow the repo's own commit convention if it has one.
 - Commit body: blank line after the subject, wrap at 72, say what changed
   and why. Skip the body only when the subject says it all.
-- One commit per logical change. Put tracking references (plan step,
-  ticket) in a trailer such as `Plan: S5`, not in the subject.
+- One commit per logical change. Keep tracking references (plan step,
+  ticket) out of the subject.
+- Merge PRs by squash. The PR title becomes the commit subject on the
+  main branch, so write it like a commit subject; the PR body becomes the
+  commit body. The PR keeps the individual commits.
 
 **Why:** Personal preference for PR readability, tone, and minimal token
 footprint. GitHub lists show only the commit subject, so a subject that
