@@ -19,10 +19,12 @@ without approval prompts, then report what that one session cost.
 - Cost: `opencode session export <id> >| /tmp/s.json`, then sum every
   `cost` field on objects that also have a `tokens` object. Redirect to a
   file; piping the export straight into a parser gave truncated JSON.
-- While a run is live, it can print nothing until it ends, and
-  `opencode session list` may not show it yet. An empty log does not mean
-  it died. Check with `pgrep -fl "opencode run"` before you restart it;
-  two runs on one branch conflict.
+- A healthy run streams output to its log and appears in
+  `opencode session list` within seconds. A run can hang at startup: the
+  process stays alive at 0% CPU, the log stays empty, no session is
+  created, and opencode.log has only "cli starting" for it. Kill it and
+  start again. Find live runs with `pgrep -fl "opencode run"` (ps | grep
+  can miss them); two runs on one branch conflict.
 - The cost uses opencode's price table. A gateway can bill a different
   rate; check the gateway for the real amount.
 
