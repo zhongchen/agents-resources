@@ -27,6 +27,11 @@ confidence: confirmed
   edits so the agent cannot commit them.
 - Verify each session yourself (checks, coverage, a real run) before you
   report; cheap models can leave placeholder code or miss input bugs.
+- When a plan section changes existing behavior, name what must not
+  change and require a test for it. Agents build exactly what the plan
+  says and test only its example; an unstated invariant breaks silently.
+  When you verify, run the cases next to the planned one (the opposite
+  type, the old behavior, edit-save-edit-save in one run) with real data.
 
 **Why:** Saves tokens and keeps each change small enough to test by hand.
 
