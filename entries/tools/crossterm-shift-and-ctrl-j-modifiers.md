@@ -1,7 +1,7 @@
 ---
 title: crossterm sends uppercase letters with SHIFT and a raw \n as Ctrl+J
 summary: A modifiers.is_empty() guard drops uppercase letters; raw-mode \n arrives as Char('j') + CONTROL
-tags: [rust, crossterm, ratatui, tui, keyboard]
+tags: [rust, tui]
 date: 2026-10-14
 confidence: confirmed
 ---

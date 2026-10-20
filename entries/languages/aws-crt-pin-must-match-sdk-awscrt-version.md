@@ -1,7 +1,7 @@
 ---
 title: Pinned aws-crt must match the AWS SDK v2 awscrt.version
 summary: Old pinned aws-crt with newer aws-crt-client fails at runtime with NoClassDefFoundError
-tags: [aws, java, aws-sdk, aws-crt, sbt, maven]
+tags: [aws, java]
 date: 2026-10-14
 confidence: confirmed
 ---

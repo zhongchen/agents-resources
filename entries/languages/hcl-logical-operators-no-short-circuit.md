@@ -1,7 +1,7 @@
 ---
 title: HCL logical operators do not short-circuit
 summary: "a == null || length(a) errors on null; guard with a ternary instead of ||"
-tags: [hcl, terraform, validation]
+tags: [hcl, terraform]
 date: 2026-10-12
 confidence: confirmed
 ---

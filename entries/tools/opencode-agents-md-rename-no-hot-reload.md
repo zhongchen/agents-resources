@@ -1,7 +1,7 @@
 ---
 title: opencode does not hot-reload AGENTS.md replaced by rename
 summary: Rebuilding AGENTS.md with mv leaves live sessions on the old content; write in place
-tags: [opencode, agents-md, watcher]
+tags: [opencode, agents]
 date: 2026-10-11
 confidence: confirmed
 ---

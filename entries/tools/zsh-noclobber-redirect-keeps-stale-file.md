@@ -1,7 +1,7 @@
 ---
 title: zsh noclobber makes > fail and leaves the old file in place
 summary: With noclobber, > to an existing file errors, and the next command silently reads stale data
-tags: [zsh, shell, redirect]
+tags: [zsh, shell]
 date: 2026-10-14
 confidence: confirmed
 ---

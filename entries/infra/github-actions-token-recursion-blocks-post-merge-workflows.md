@@ -1,7 +1,7 @@
 ---
 title: GITHUB_TOKEN merges don't trigger other push-triggered workflows
 summary: Auto-merge via GITHUB_TOKEN skips downstream push workflows on the same branch
-tags: [github, github-actions, ci, automerge]
+tags: [github, github-actions, ci]
 date: 2026-09-30
 confidence: confirmed
 ---

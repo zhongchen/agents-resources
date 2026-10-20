@@ -1,7 +1,7 @@
 ---
 title: Report in ASD-STE100 Simplified Technical English
 summary: Report to Zhong only in ASD-STE100 Simplified Technical English
-tags: [communication, style, preferences]
+tags: [communication, style]
 date: 2026-09-30
 confidence: confirmed
 ---

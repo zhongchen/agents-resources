@@ -1,7 +1,7 @@
 ---
 title: ClickHouse quota counters are per node behind a load-balanced endpoint
 summary: Quota limits never trip through a load-balanced endpoint; counters are per node
-tags: [clickhouse, quotas, load-balancing]
+tags: [clickhouse, quotas]
 date: 2026-10-07
 confidence: confirmed
 ---
