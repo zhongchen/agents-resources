@@ -10,7 +10,23 @@ REQUIRED_FIELDS = ["title", "summary", "tags", "date", "confidence"]
 VALID_CONFIDENCE = {"confirmed", "tentative"}
 SOFT_SUMMARY_LEN = 100
 MAX_LINES = 200
+MAX_TAGS = 4
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+CONTRIBUTING = Path("CONTRIBUTING.md")
+
+TAG_ALIASES = {
+    "gha": "github-actions",
+    "k8s": "kubernetes",
+    "aws-sdk": "aws",
+    "github-action": "github-actions",
+    "tf": "terraform",
+    "terraform-hcl": "hcl",
+    "testing-practices": "testing",
+    "bash": "shell",
+    "agent": "agents",
+    "agents-md": "agents",
+    "claude-code": "agents",
+}
 
 SECRET_PATTERNS = [
     re.compile(r"AKIA[0-9A-Z]{16}"),
@@ -40,6 +56,21 @@ def parse_frontmatter(text):
             value = [v.strip() for v in value[1:-1].split(",") if v.strip()]
         fm[key] = value
     return fm, body
+
+
+def load_allowed_tags():
+    """Backticked tags on bullet lines of the '## Allowed tags' section of CONTRIBUTING.md."""
+    if not CONTRIBUTING.exists():
+        return None
+    section = CONTRIBUTING.read_text(encoding="utf-8").partition("\n## Allowed tags\n")[2]
+    if not section:
+        return None
+    section = section.split("\n## ", 1)[0]
+    tags = set()
+    for line in section.splitlines():
+        if line.startswith("- "):
+            tags.update(re.findall(r"`([^`]+)`", line))
+    return tags
 
 
 def generate_index_text():
@@ -72,7 +103,7 @@ def generate_index_text():
     return "\n".join(lines).rstrip() + "\n"
 
 
-def check_file(path):
+def check_file(path, allowed_tags=None):
     errors = []
     text = path.read_text(encoding="utf-8")
     fm, _ = parse_frontmatter(text)
@@ -95,6 +126,20 @@ def check_file(path):
 
     if "tags" in fm and not isinstance(fm["tags"], list):
         errors.append(f"{path}: tags must be a [comma, separated, list]")
+    elif "tags" in fm:
+        if len(fm["tags"]) > MAX_TAGS:
+            errors.append(f"{path}: entry has {len(fm['tags'])} tags, max is {MAX_TAGS}")
+        if allowed_tags is not None:
+            unknown = [t for t in fm["tags"] if t not in allowed_tags]
+            if unknown:
+                flagged = []
+                for t in unknown:
+                    canonical = TAG_ALIASES.get(t)
+                    if canonical:
+                        flagged.append(f"{t} (use '{canonical}' instead)")
+                    else:
+                        flagged.append(t)
+                print(f"warning: {path}: tags not in CONTRIBUTING.md allowed list: {', '.join(flagged)}")
 
     line_count = text.count("\n")
     if line_count > MAX_LINES:
@@ -115,9 +160,12 @@ def main():
     files = sorted(ENTRIES_DIR.rglob("*.md"))
     all_errors = []
     seen_titles = {}
+    allowed_tags = load_allowed_tags()
+    if allowed_tags is None:
+        print("warning: no '## Allowed tags' section in CONTRIBUTING.md; skipping tag check")
 
     for path in files:
-        all_errors.extend(check_file(path))
+        all_errors.extend(check_file(path, allowed_tags))
         text = path.read_text(encoding="utf-8")
         fm, _ = parse_frontmatter(text)
         if fm and isinstance(fm.get("title"), str):
