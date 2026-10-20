@@ -1,7 +1,7 @@
 ---
 title: git push can land on main with push.default=upstream
 summary: Bare `git push` on a branch checked out from origin/main can push straight to main
-tags: [git, github, safety]
+tags: [git, github]
 date: 2026-09-30
 confidence: confirmed
 ---

@@ -19,6 +19,44 @@ Entries live under `entries/<topic>/`. Use an existing topic when it fits:
 
 Create a new topic directory only if nothing existing fits.
 
+## Allowed tags
+
+Tags are for grouping, not keywords. Put specific keywords (for example
+`irsa`, `globbing`) in the title and summary. Agents search `INDEX.md`,
+which shows titles and summaries, not tags.
+
+Pick tags from the bullet list below. Entry shape:
+
+1. The folder is the main category. Do not add a tag that only repeats
+   the folder name.
+2. Use subject tags for what the entry is about. They come from the
+   Tools, Platforms, and Languages and builds groups.
+3. Use 0 to 2 concern tags. They come from the Concerns group.
+4. Use at most 4 tags per entry. CI fails an entry with more than 4 tags.
+
+The Preferences group is for `preferences/` entries only.
+
+Use flat names, one name per idea. Do not build a hierarchy like
+`aws/sts`. For known aliases, CI suggests the canonical name. The alias
+map is `TAG_ALIASES` in `scripts/validate_entries.py`.
+
+Add a tag only when at least 2 entries need it and no listed tag fits.
+Remove a tag when no entry uses it. Edit the list in its own
+PR. That PR touches a file outside `entries/`, so it does not auto-merge
+and a human reviews it. Retag the affected entries in the same PR.
+
+Review tags with `python scripts/tag_report.py`. A monthly workflow also
+opens an issue with the report.
+
+CI reads the bullet lines below. A tag not on the list gives a warning,
+not a failure, so the entry still merges.
+
+- Tools: `git`, `github`, `github-actions`, `herdr`, `opencode`, `tmux`, `zsh`, `direnv`, `launchd`, `rtk`
+- Platforms: `aws`, `clickhouse`, `kubernetes`, `terraform`, `macos`
+- Languages and builds: `java`, `rust`, `hcl`
+- Concerns: `agents`, `ci`, `config`, `cost`, `quotas`, `security`, `shell`, `testing`, `tui`, `terminal-multiplexer`
+- Preferences: `communication`, `style`, `workflow`
+
 ## Entry template
 
 Save as `entries/<topic>/<short-kebab-slug>.md`:
@@ -78,6 +116,8 @@ example.
 
 - Required frontmatter fields are present and well-formed.
 - No duplicate titles.
+- Tags not in the allowed list (warning, with a suggested name for known aliases).
+- At most 4 tags per entry.
 - Entry length limit.
 - No secret-shaped strings (API keys, private keys, tokens).
 - `INDEX.md` matches what `scripts/build_index.py` would generate.

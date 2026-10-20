@@ -1,7 +1,7 @@
 ---
 title: opencode v2 accepts an instructions array in config but never loads it
 summary: The config schema documents the instructions field, but no code reads those files
-tags: [opencode, config, rules]
+tags: [opencode, config]
 date: 2026-10-11
 confidence: confirmed
 ---

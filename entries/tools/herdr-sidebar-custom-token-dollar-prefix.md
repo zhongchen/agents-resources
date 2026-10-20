@@ -1,7 +1,7 @@
 ---
 title: Herdr sidebar custom tokens need a $ prefix in config
 summary: { token = "branch" } fails; must be { token = "$branch" } to show custom metadata
-tags: [herdr, terminal-multiplexer, toml]
+tags: [herdr, terminal-multiplexer]
 date: 2026-10-02
 confidence: confirmed
 ---

@@ -1,7 +1,7 @@
 ---
 title: Few tests, high coverage
 summary: Small test budget; table-driven tests, one mock round trip, UI snapshots; add a case before a test
-tags: [testing, coverage, preferences]
+tags: [testing]
 date: 2026-10-14
 confidence: confirmed
 ---

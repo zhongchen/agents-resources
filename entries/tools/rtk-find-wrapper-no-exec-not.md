@@ -1,7 +1,7 @@
 ---
 title: rtk's `find` shell wrapper rejects `-not` and `-exec`
 summary: rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/find by absolute path
-tags: [rtk, find, shell]
+tags: [rtk, shell]
 date: 2026-10-05
 confidence: confirmed
 ---

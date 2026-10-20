@@ -1,7 +1,7 @@
 ---
 title: zsh aborts the whole command when one glob has no match
 summary: one unmatched glob cancels the whole command, so files other globs match are never listed
-tags: [zsh, shell, globbing]
+tags: [zsh, shell]
 date: 2026-10-05
 confidence: confirmed
 ---

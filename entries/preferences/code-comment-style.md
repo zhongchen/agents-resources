@@ -1,7 +1,7 @@
 ---
 title: No decorative comments in code
 summary: Never write banner dividers or comments that restate code; only short comments for non-obvious WHY
-tags: [comments, style]
+tags: [style]
 date: 2026-10-01
 confidence: confirmed
 ---

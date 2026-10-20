@@ -1,7 +1,7 @@
 ---
 title: Herdr pane border title has no color or style support
 summary: Herdr pane report-metadata --title is plain text; ANSI codes get stripped
-tags: [herdr, terminal-multiplexer, ansi]
+tags: [herdr, terminal-multiplexer]
 date: 2026-10-02
 confidence: confirmed
 ---

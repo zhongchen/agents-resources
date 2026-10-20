@@ -1,7 +1,7 @@
 ---
 title: Build apps in small agent sessions from a shared plan
 summary: Short AGENTS.md + per-session PLAN.md sections, one PR per session, owner squash-merges
-tags: [agents, workflow, cost, planning]
+tags: [agents, workflow, cost]
 date: 2026-10-14
 confidence: confirmed
 ---

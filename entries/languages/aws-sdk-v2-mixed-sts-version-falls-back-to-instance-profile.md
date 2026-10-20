@@ -1,7 +1,7 @@
 ---
 title: AWS SDK v2 old sts module silently drops IRSA and uses the node role
 summary: Mixed AWS SDK v2 versions break web identity; default chain falls back to instance profile
-tags: [aws, java, aws-sdk, irsa, sts, sbt, maven, kubernetes]
+tags: [aws, java, kubernetes]
 date: 2026-10-14
 confidence: confirmed
 ---
