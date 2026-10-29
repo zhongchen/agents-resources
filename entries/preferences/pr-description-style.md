@@ -1,6 +1,6 @@
 ---
 title: Personal pull request and commit writing style
-summary: PR/commit rules - STE100, Conventional Commits, squash merge, fill all PR sections, no AI footer
+summary: PR/commit rules - STE100, Conventional Commits, squash merge, fill all sections of the repo PR template (short body if none), no AI footer
 tags: [git, github, communication, style]
 date: 2026-10-15
 confidence: confirmed
@@ -8,12 +8,17 @@ confidence: confirmed
 
 **Rule:**
 - Use ASD-STE100 Simplified Technical English. Go straight to the point.
-- Follow the repo's pull request template.
+- If the repo has a pull request template, follow it. Look for it
+  case-insensitively (`find .github -iname '*pull_request_template*'`).
 - Fill every template section to the best of your knowledge, including
   validation, rollback, scope and customer impact. Tick a box only when
   the change supports it. State what was not tested. A human reviews and
   confirms. This overrides a repo AGENTS.md that says to leave those
   sections for a human.
+- If the repo has no pull request template, write a short body: what
+  changed and why. Do not add validation, rollback, scope or customer
+  impact sections. Mention what was not tested only when it is a real
+  risk for the reviewer, in one or two sentences.
 - Less is more: no filler, no nice-to-have context, nothing the diff
   already shows.
 - No em dashes.
