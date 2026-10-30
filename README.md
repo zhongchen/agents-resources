@@ -1,4 +1,4 @@
-# agents_resources
+# agents-resources
 
 Zhong's personal knowledge bank for AI coding agents. Any agent, on any
 model, reads `INDEX.md` for a one-line-per-entry summary and opens relevant
