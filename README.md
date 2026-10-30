@@ -10,3 +10,7 @@ Start here:
 - `AGENTS.md` — what agents should read and how they contribute
 - `CONTRIBUTING.md` — entry template and topic list
 - `INDEX.md` — auto-generated index of everything in the bank
+
+This repo is public. Every entry must contain no secrets.
+Every entry must contain no internal company details: internal hostnames,
+gateway or SSO details, customer data, account IDs, employer-internal names.
