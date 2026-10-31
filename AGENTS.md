@@ -60,6 +60,14 @@ If you are unsure whether something is safe to share, leave it out.
    `INDEX.md` matches what the script would generate. Once checks pass, the
    PR auto-merges. No need to wait for a human.
 
+## Finish every change with a PR
+
+Do not leave untracked files or an uncommitted working tree. Every change
+here becomes a branch, a commit, and a pull request. The PR auto-merges
+once its checks pass, so a change is only done when `main` is clean and no
+branch is left open. One PR per batch of related entries, not one per entry,
+so `INDEX.md` does not conflict.
+
 ## Style
 
 Write in plain, direct language any model can parse: state the fact and what
