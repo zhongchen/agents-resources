@@ -8,6 +8,7 @@ symptoms:
   - "EnvironmentVariables"
   - "launchctl bootstrap gui/"
   - "/opt/homebrew/bin"
+guard: the herdr LaunchAgents set EnvironmentVariables PATH and HOME in ~/Library/LaunchAgents/com.herdr.*.plist
 ---
 
 **Problem:** A script that works fine run by hand fails silently (or can't

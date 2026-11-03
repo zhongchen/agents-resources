@@ -31,8 +31,12 @@ Add an entry when you confirm something that:
   defaults, workflow habits.
 - Generalizes beyond the one project you were in. Project-specific business
   logic does not belong here.
-- Is not already covered by an existing entry. Check `INDEX.md` first. If a
-  close match exists, update that entry instead of adding a near-duplicate.
+- Is not already covered by an existing entry. Check `INDEX.md` first, and
+  run `scripts/kb.py search "<error text>"`. If a close match exists, update
+  that entry instead of adding a near-duplicate.
+- Can be prevented by a setting. Apply the setting, then record it in the
+  entry's `guard` field. Knowledge that is already enforced costs nothing to
+  read later.
 
 Do not add: speculation, one-off trivia, anything that depends on internal
 business context, or anything that just duplicates public documentation you

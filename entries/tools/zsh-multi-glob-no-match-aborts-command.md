@@ -8,6 +8,7 @@ symptoms:
   - "zsh: no matches found"
   - "setopt null_glob"
   - "NOMATCH"
+guard: none - NOMATCH is the zsh default and catches typos; use one glob or find -iname
 ---
 
 **Problem:** Checking for a file that may use either casing, e.g.

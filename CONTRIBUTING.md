@@ -70,6 +70,7 @@ date: YYYY-MM-DD
 confidence: confirmed   # or: tentative
 symptoms:              # optional, see below
   - "exact error text or command"
+guard: none            # optional, see below
 ---
 
 **Problem:** What situation triggers this.
@@ -112,6 +113,31 @@ the top result when the agent has no idea where the problem lives.
 Keep 1 to 4 items. Leave the field out for a preference entry or for a
 lesson with no distinctive text. A symptom must be an exact substring of
 the entry; CI does not check that, so check it yourself.
+
+## Guards
+
+`guard` is optional. It answers one question for the next reader: is this
+already prevented on this machine, and by what?
+
+A setting that prevents it:
+
+```
+guard: git config --global push.default=current (set 2026-11-02) - a bare push follows the branch name
+```
+
+A protection that is on purpose:
+
+```
+guard: none - noclobber is deliberate; the fix stays "use >| or a fresh file name"
+```
+
+Apply the setting before you record it. Name the exact key, value, and
+file or command. `grep -rn '^guard:' entries/` lists every live guard, and
+serves as the checklist after a machine rebuild.
+
+Record `none` with a reason when a reader might otherwise disable a
+protection to silence the problem. Leave the field out when there is
+nothing to prevent.
 
 Keep entries under 200 lines. One idea per entry. See
 `entries/git/push-default-upstream-lands-on-main.md` for a worked technical
