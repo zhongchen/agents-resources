@@ -1,6 +1,6 @@
 ---
-title: rtk's `find` shell wrapper rejects `-not` and `-exec`
-summary: rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/find by absolute path
+title: rtk rewrites `find` to `rtk find`, which rejects `-not` and `-exec`
+summary: rtk rewrites find to `rtk find`; -not/-exec fail, and command find does not help; use /usr/bin/find
 tags: [rtk, shell]
 date: 2026-10-05
 confidence: confirmed
@@ -11,21 +11,22 @@ symptoms:
 ---
 
 **Problem:** Running `find . -not -path ...` or `find . -exec ...` in a
-session with rtk's hook-based command rewriting fails with: `rtk: rtk find
-does not support compound predicates or actions (e.g. -not, -exec). Use
-`find` directly.` Prefixing with `command find` does not help, since `find`
-is a shell function (not a binary on PATH), so `command` still resolves to
-the same wrapper.
+session with rtk's bash rewrite fails with: `rtk: rtk find does not support
+compound predicates or actions (e.g. -not, -exec). Use `find` directly.`
+Prefixing with `command find` does not help: rtk rewrites that to
+`command rtk find`, which fails the same way.
 
-**Cause:** rtk replaces `find` with a token-optimized proxy via a shell
-function, not a PATH binary. Its parser only handles a simple subset of
-`find`'s flags and refuses anything with `-not`, `-exec`, or other compound
-predicates/actions, even though real GNU/BSD `find` supports them.
+**Cause:** The rewrite hook replaces `find` with `rtk find` before the shell
+runs it. There is no shell function: `whence -w find` reports `command`.
+`rtk find` handles a simple subset of flags and refuses compound predicates
+and actions. The rewriter skips a command it does not read as a single
+`find`, so `find ... | head -3` runs unchanged, which makes the failure
+look intermittent.
 
-**Fix / Fact:** Call the real binary directly by absolute path, e.g.
-`/usr/bin/find . -iname '*.hcl' -not -path '*cache*'`. This bypasses the
-shell function entirely and behaves like standard `find`.
+**Fix / Fact:** Call the real binary by absolute path:
+`/usr/bin/find . -iname '*.hcl' -not -path '*cache*'`. rtk leaves an
+absolute path alone. Check the behavior with
+`echo '{"tool_name":"Bash","tool_input":{"command":"find . -not -name x"}}' | rtk hook claude`.
 
-**Applies to:** Any shell session with the rtk Claude Code hook installed,
-when using `-not`, `-exec`, or other predicates/actions rtk's `find` proxy
-doesn't support.
+**Applies to:** rtk 0.42.3 with the opencode bash rewrite shim. Reproduce
+with `rtk find . -not -name x`.
