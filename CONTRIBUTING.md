@@ -45,8 +45,9 @@ Remove a tag when no entry uses it. Edit the list in its own
 PR. That PR touches a file outside `entries/`, so it does not auto-merge
 and a human reviews it. Retag the affected entries in the same PR.
 
-Review tags with `python scripts/tag_report.py`. A monthly workflow also
-opens an issue with the report.
+Review tags with `python scripts/tag_report.py`. The same report lists
+entries older than 90 days and entries with `confidence: tentative`. A
+monthly workflow opens an issue with the report.
 
 CI reads the bullet lines below. A tag not on the list gives a warning,
 not a failure, so the entry still merges.
