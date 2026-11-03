@@ -4,6 +4,10 @@ summary: Quota limits never trip through a load-balanced endpoint; counters are 
 tags: [clickhouse, quotas]
 date: 2026-10-07
 confidence: confirmed
+symptoms:
+  - "system.quotas_usage"
+  - "clusterAllReplicas"
+  - "CREATE QUOTA"
 ---
 
 **Problem:** A `CREATE QUOTA` with small limits (for example `MAX queries = 3`

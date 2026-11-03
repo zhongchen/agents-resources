@@ -4,6 +4,10 @@ summary: Bare `git push` on a branch checked out from origin/main can push strai
 tags: [git, github]
 date: 2026-09-30
 confidence: confirmed
+symptoms:
+  - "push.default=upstream"
+  - "git checkout -b foo origin/main"
+  - "git push -u origin foo:foo"
 ---
 
 **Problem:** Running `git push origin <branch>` (or a bare `git push`) appears

@@ -4,6 +4,10 @@ summary: On herdr 0.9.3 a plugin [[events]] hook accepts fewer event names than 
 tags: [herdr, tui]
 date: 2026-11-02
 confidence: confirmed
+symptoms:
+  - "unknown event 'pane.updated'"
+  - "herdr plugin link"
+  - "pane.updated"
 ---
 
 **Problem:** A plugin declares an `[[events]]` hook with `on = "pane.updated"`.

@@ -4,6 +4,10 @@ summary: rtk shadows `find` as a shell function; -not/-exec fail, call /usr/bin/
 tags: [rtk, shell]
 date: 2026-10-05
 confidence: confirmed
+symptoms:
+  - "does not support compound predicates"
+  - "/usr/bin/find"
+  - "-exec"
 ---
 
 **Problem:** Running `find . -not -path ...` or `find . -exec ...` in a

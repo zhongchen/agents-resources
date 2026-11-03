@@ -4,6 +4,11 @@ summary: opencode.db session table is legacy and near-empty; live per-session co
 tags: [opencode, agents, cost]
 date: 2026-10-31
 confidence: confirmed
+symptoms:
+  - "session_v2"
+  - "tokens_cache_read"
+  - "mode=ro"
+  - "opencode.db"
 ---
 
 **Problem:** You read per-session cost or token totals from the OpenCode

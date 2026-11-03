@@ -4,6 +4,11 @@ summary: opencode run --auto -m runs without prompts; per-session cost comes onl
 tags: [opencode, agents, cost]
 date: 2026-10-14
 confidence: confirmed
+symptoms:
+  - "opencode run --auto -m"
+  - "opencode session export"
+  - "cli starting"
+  - "pgrep -fl"
 ---
 
 **Problem:** You want another agent to run a scoped task on a cheaper model

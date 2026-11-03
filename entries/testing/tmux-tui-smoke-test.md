@@ -4,6 +4,10 @@ summary: Drive a TUI with tmux send-keys and read the screen with capture-pane; 
 tags: [tmux, tui, testing, agents]
 date: 2026-10-14
 confidence: confirmed
+symptoms:
+  - "tmux new-session -d -s t -x 120 -y 30"
+  - "tmux send-keys -t t -l"
+  - "tmux capture-pane -t t -p"
 ---
 
 **Problem:** An agent cannot see a TUI app, so it cannot check key flows

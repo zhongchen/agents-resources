@@ -4,6 +4,10 @@ summary: pane run never delivers opencode/kimi/pi/kilo resume commands; their --
 tags: [herdr, cli]
 date: 2026-11-02
 confidence: confirmed
+symptoms:
+  - "server_not_running"
+  - "herdr pane run <pane_id> opencode --session"
+  - "herdr pane send-text"
 ---
 
 **Problem:** `herdr pane run <pane_id> opencode --session ses_x` fails with

@@ -4,6 +4,10 @@ summary: A modifiers.is_empty() guard drops uppercase letters; raw-mode \n arriv
 tags: [rust, tui]
 date: 2026-10-14
 confidence: confirmed
+symptoms:
+  - "key.modifiers.is_empty()"
+  - "KeyCode::Char('X')"
+  - "KeyModifiers::SHIFT"
 ---
 
 **Problem:** In a crossterm/ratatui text input, typing `X-Test` gives

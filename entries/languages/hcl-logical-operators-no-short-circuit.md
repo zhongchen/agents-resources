@@ -4,6 +4,10 @@ summary: "a == null || length(a) errors on null; guard with a ternary instead of
 tags: [hcl, terraform]
 date: 2026-10-12
 confidence: confirmed
+symptoms:
+  - "argument must not be null"
+  - "length(group.node_types) > 0"
+  - "Invalid function argument"
 ---
 
 **Problem:** A variable validation like

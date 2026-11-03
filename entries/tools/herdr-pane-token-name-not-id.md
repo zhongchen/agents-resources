@@ -4,6 +4,10 @@ summary: no built-in token renders the pane ID; add a custom $pane_id token; rel
 tags: [herdr, terminal-multiplexer]
 date: 2026-10-11
 confidence: confirmed
+symptoms:
+  - "herdr server reload-config"
+  - "config.toml? (y/n)"
+  - "keys.reload_config"
 ---
 
 **Problem:** Show a pane's public ID (`w1:p2`) in the Herdr sidebar, and get

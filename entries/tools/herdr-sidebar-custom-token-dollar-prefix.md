@@ -4,6 +4,10 @@ summary: { token = "branch" } fails; must be { token = "$branch" } to show custo
 tags: [herdr, terminal-multiplexer]
 date: 2026-10-02
 confidence: confirmed
+symptoms:
+  - "unknown sidebar token"
+  - "custom tokens must start with"
+  - "$branch"
 ---
 
 **Problem:** `config.toml` fails to parse (or `herdr config check` reports

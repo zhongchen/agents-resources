@@ -4,6 +4,10 @@ summary: direnv runs .envrc with PWD at the .envrc's dir, not the dir you cd'd i
 tags: [direnv, git]
 date: 2026-10-01
 confidence: confirmed
+symptoms:
+  - "${OLDPWD:-$PWD}"
+  - "$OLDPWD"
+  - "remote.origin.url"
 ---
 
 **Problem:** An `.envrc` placed at a parent directory (e.g. `~/.envrc` or

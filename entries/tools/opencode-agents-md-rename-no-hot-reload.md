@@ -4,6 +4,11 @@ summary: mv or git checkout/commit bypass the file watcher; a symlinked config n
 tags: [opencode, agents, config]
 date: 2026-10-31
 confidence: confirmed
+symptoms:
+  - "/api/location/reload"
+  - "opencode service restart"
+  - "GET /api/config"
+  - "/api/experimental/mcp/"
 ---
 
 **Problem:** Rebuilding a global AGENTS.md with the write-temp-then-rename

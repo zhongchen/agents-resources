@@ -4,6 +4,10 @@ summary: Homebrew and user-local bin dirs aren't in PATH by default; set PATH/HO
 tags: [launchd, macos]
 date: 2026-10-02
 confidence: confirmed
+symptoms:
+  - "EnvironmentVariables"
+  - "launchctl bootstrap gui/"
+  - "/opt/homebrew/bin"
 ---
 
 **Problem:** A script that works fine run by hand fails silently (or can't

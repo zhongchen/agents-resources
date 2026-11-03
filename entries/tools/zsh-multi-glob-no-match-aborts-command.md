@@ -4,6 +4,10 @@ summary: one unmatched glob cancels the whole command, so files other globs matc
 tags: [zsh, shell]
 date: 2026-10-05
 confidence: confirmed
+symptoms:
+  - "zsh: no matches found"
+  - "setopt null_glob"
+  - "NOMATCH"
 ---
 
 **Problem:** Checking for a file that may use either casing, e.g.

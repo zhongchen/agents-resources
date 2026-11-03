@@ -4,6 +4,11 @@ summary: Old pinned aws-crt with newer aws-crt-client fails at runtime with NoCl
 tags: [aws, java]
 date: 2026-10-14
 confidence: confirmed
+symptoms:
+  - "NoClassDefFoundError"
+  - "crt/http/HttpStreamManager"
+  - "awscrt.version"
+  - "aws-crt-client"
 ---
 
 **Problem:** After an AWS SDK v2 bump, code that uses `aws-crt-client`

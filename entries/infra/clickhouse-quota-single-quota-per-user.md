@@ -4,6 +4,10 @@ summary: Attaching multiple quotas to a user silently does nothing; execution_ti
 tags: [clickhouse, quotas]
 date: 2026-10-07
 confidence: confirmed
+symptoms:
+  - "chooseQuotaToConsumeFor"
+  - "execution_time"
+  - "SETTINGS max_block_size = 2"
 ---
 
 **Problem:** Two traps make ClickHouse quotas look broken when they are not.
