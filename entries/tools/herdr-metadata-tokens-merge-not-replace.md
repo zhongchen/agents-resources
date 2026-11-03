@@ -4,6 +4,10 @@ summary: pane report-metadata --token values persist across calls until explicit
 tags: [herdr, terminal-multiplexer]
 date: 2026-10-02
 confidence: confirmed
+symptoms:
+  - "herdr pane report-metadata"
+  - "--token NAME=VALUE"
+  - "--clear-token"
 ---
 
 **Problem:** A pane shows a stale custom token (e.g. a branch name or

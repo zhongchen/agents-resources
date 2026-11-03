@@ -4,6 +4,10 @@ summary: With noclobber, > to an existing file errors, and the next command sile
 tags: [zsh, shell]
 date: 2026-10-14
 confidence: confirmed
+symptoms:
+  - "file exists: /tmp/out.json"
+  - "setopt noclobber"
+  - ">|"
 ---
 
 **Problem:** `cmd > /tmp/out.json; parse /tmp/out.json` gives old results.

@@ -4,6 +4,11 @@ summary: Mixed AWS SDK v2 versions break web identity; default chain falls back 
 tags: [aws, java, kubernetes]
 date: 2026-10-14
 confidence: confirmed
+symptoms:
+  - "CLIENT_ENDPOINT_PROVIDER"
+  - "WebIdentityTokenFileCredentialsProvider"
+  - "InstanceProfileCredentialsProvider"
+  - "dependencyOverrides"
 ---
 
 **Problem:** After an AWS SDK v2 version bump, a JVM app on EKS gets

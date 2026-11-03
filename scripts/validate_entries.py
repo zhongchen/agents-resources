@@ -46,16 +46,32 @@ def parse_frontmatter(text):
     raw = text[4:end]
     body = text[end + 4:]
     fm = {}
+    key = None
     for line in raw.splitlines():
-        if not line.strip() or ":" not in line:
+        if not line.strip():
+            continue
+        stripped = line.lstrip()
+        # Block list item, for fields too long for one line (symptoms).
+        if stripped.startswith("- ") and key:
+            if not isinstance(fm.get(key), list):
+                fm[key] = []
+            fm[key].append(unquote(stripped[2:].strip()))
+            continue
+        if ":" not in line:
             continue
         key, _, value = line.partition(":")
         key = key.strip()
         value = value.strip()
         if value.startswith("[") and value.endswith("]"):
-            value = [v.strip() for v in value[1:-1].split(",") if v.strip()]
+            value = [unquote(v.strip()) for v in value[1:-1].split(",") if v.strip()]
         fm[key] = value
     return fm, body
+
+
+def unquote(value):
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+        return value[1:-1]
+    return value
 
 
 def load_allowed_tags():
@@ -140,6 +156,12 @@ def check_file(path, allowed_tags=None):
                     else:
                         flagged.append(t)
                 print(f"warning: {path}: tags not in CONTRIBUTING.md allowed list: {', '.join(flagged)}")
+
+    if "symptoms" in fm:
+        if not isinstance(fm["symptoms"], list):
+            errors.append(f"{path}: symptoms must be a list, one per line or [a, b]")
+        elif not all(isinstance(s, str) and s.strip() for s in fm["symptoms"]):
+            errors.append(f"{path}: symptoms has an empty item")
 
     line_count = text.count("\n")
     if line_count > MAX_LINES:

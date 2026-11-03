@@ -4,6 +4,9 @@ summary: herdr api only offers snapshot/schema, no watch/subscribe; live tooling
 tags: [herdr, terminal-multiplexer]
 date: 2026-10-02
 confidence: confirmed
+symptoms:
+  - "herdr api"
+  - "herdr pane list --workspace <id>"
 ---
 
 **Problem:** Building external tooling that reacts to Herdr state changes

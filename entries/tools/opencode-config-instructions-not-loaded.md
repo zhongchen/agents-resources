@@ -4,6 +4,9 @@ summary: The config schema documents the instructions field, but no code reads t
 tags: [opencode, config]
 date: 2026-10-11
 confidence: confirmed
+symptoms:
+  - '"instructions": ["/abs/path/rule.md"]'
+  - "instructions field"
 ---
 
 **Problem:** Adding `"instructions": ["/abs/path/rule.md"]` to opencode.json

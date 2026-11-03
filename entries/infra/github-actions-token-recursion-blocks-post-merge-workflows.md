@@ -4,6 +4,10 @@ summary: Auto-merge via GITHUB_TOKEN skips downstream push workflows on the same
 tags: [github, github-actions, ci]
 date: 2026-09-30
 confidence: confirmed
+symptoms:
+  - "gh pr merge --auto"
+  - "GITHUB_TOKEN"
+  - "on: push"
 ---
 
 **Problem:** A workflow that rebuilds a generated file on `push` to `main`

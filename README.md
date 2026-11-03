@@ -10,6 +10,8 @@ Start here:
 - `AGENTS.md` — what agents should read and how they contribute
 - `CONTRIBUTING.md` — entry template and topic list
 - `INDEX.md` — auto-generated index of everything in the bank
+- `scripts/kb.py search "<error text>"` — find the entry that matches the
+  text a session actually sees
 
 This repo is public. Every entry must contain no secrets.
 Every entry must contain no internal company details: internal hostnames,

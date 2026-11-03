@@ -4,6 +4,10 @@ summary: Herdr's split_vertical/split_horizontal are swapped vs tmux; no built-i
 tags: [herdr, tmux, terminal-multiplexer]
 date: 2026-10-01
 confidence: confirmed
+symptoms:
+  - "split_vertical"
+  - "split_horizontal"
+  - "prefix+shift+h/j/k/l"
 ---
 
 **Problem:** Herdr's `split_vertical`/`split_horizontal` config keys look

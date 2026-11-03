@@ -4,6 +4,11 @@ summary: Stale tui.json makes herdr skip cli.json; no session ID is reported, so
 tags: [herdr, opencode]
 date: 2026-10-12
 confidence: confirmed
+symptoms:
+  - "agent_session"
+  - "cli.json"
+  - "tui.json"
+  - "herdr integration install opencode"
 ---
 
 **Problem:** After a Herdr server restart, Claude Code panes resume but

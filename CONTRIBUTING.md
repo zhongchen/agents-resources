@@ -68,6 +68,8 @@ summary: One line, about 100 chars, shown in INDEX.md
 tags: [tag1, tag2]
 date: YYYY-MM-DD
 confidence: confirmed   # or: tentative
+symptoms:              # optional, see below
+  - "exact error text or command"
 ---
 
 **Problem:** What situation triggers this.
@@ -93,6 +95,23 @@ shape instead:
 The 100-character summary length is a guide, not a hard limit. Keep only
 essential info. Exceed 100 when you have to. Never cut essential info just
 to fit.
+
+## Symptoms
+
+`symptoms` is optional. Use it on any entry whose trigger is text a session
+will actually see: an error message, an exception class, a failing command,
+a config key. Copy the text verbatim from the entry body. Do not paraphrase
+and do not invent text that the entry does not show. Short forms are fine
+when they are an exact substring (`NoClassDefFoundError`, not
+`class not found error`).
+
+Agents search the bank with `scripts/kb.py search "<error text>"`. A
+symptom hit ranks above a body hit, so a good list puts the right entry in
+the top result when the agent has no idea where the problem lives.
+
+Keep 1 to 4 items. Leave the field out for a preference entry or for a
+lesson with no distinctive text. A symptom must be an exact substring of
+the entry; CI does not check that, so check it yourself.
 
 Keep entries under 200 lines. One idea per entry. See
 `entries/git/push-default-upstream-lands-on-main.md` for a worked technical

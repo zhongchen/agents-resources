@@ -4,6 +4,10 @@ summary: opencode 2.x needs { id, setup(ctx) } and ctx.tool.hook; v1 hooks and t
 tags: [opencode, config]
 date: 2026-10-12
 confidence: confirmed
+symptoms:
+  - "tool.execute.before"
+  - "ctx.tool.hook"
+  - "export default { id, setup }"
 ---
 
 **Problem:** A plugin written for opencode v1 (`export const MyPlugin =

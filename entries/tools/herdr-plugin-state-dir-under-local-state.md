@@ -4,6 +4,10 @@ summary: HERDR_PLUGIN_STATE_DIR is ~/.local/state/herdr/plugins/<id>; plugin con
 tags: [herdr, config]
 date: 2026-11-02
 confidence: confirmed
+symptoms:
+  - "HERDR_PLUGIN_STATE_DIR"
+  - "~/.local/state/herdr/plugins/"
+  - "~/.config/herdr/plugins/"
 ---
 
 **Problem:** A plugin script run manually, without the `HERDR_PLUGIN_STATE_DIR`

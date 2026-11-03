@@ -12,7 +12,11 @@ outside contributors. Treat it as personal, not a community project.
    everything in the bank, grouped by topic.
 2. Open only the specific entry files under `entries/` that are relevant to
    your current task. Do not read the whole repo into context.
-3. If nothing in the index covers your situation, proceed with your task as
+3. Before you write a new entry, search the bank for the text you actually
+   saw: `scripts/kb.py search "<error text or command>"`. It ranks hits by
+   the entry's `symptoms` list. If a matching entry exists, update it
+   instead of adding a near-duplicate.
+4. If nothing in the index covers your situation, proceed with your task as
    normal. Only come back here to contribute if you learn something worth
    keeping (see below).
 

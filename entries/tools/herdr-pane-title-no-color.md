@@ -4,6 +4,10 @@ summary: Herdr pane report-metadata --title is plain text; ANSI codes get stripp
 tags: [herdr, terminal-multiplexer]
 date: 2026-10-02
 confidence: confirmed
+symptoms:
+  - "herdr pane report-metadata --title"
+  - "display_agent"
+  - "herdr api schema --json"
 ---
 
 **Problem:** Wanting per-field color (e.g. branch in blue, dirty flag in red)
