@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Pre-commit: rebuild INDEX.md when entries change, then validate. A commit
+# can never leave the index stale or an entry malformed.
+set -euo pipefail
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_dir"
+
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^entries/'; then
+  python3 scripts/build_index.py
+  git add INDEX.md
+fi
+
+if ! out=$(python3 scripts/validate_entries.py 2>&1); then
+  printf '%s\n' "$out" >&2
+  exit 1
+fi

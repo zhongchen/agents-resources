@@ -58,9 +58,9 @@ If you are unsure whether something is safe to share, leave it out.
 1. Branch: `knowledge/<topic>-<short-slug>`, or a batch name for several
    entries at once.
 2. Add or edit entries under `entries/<topic>/`, using the template in
-   `CONTRIBUTING.md`. One commit per entry; each commit runs
-   `python scripts/build_index.py` and includes the updated `INDEX.md`, so
-   every commit is self-contained. Never hand-edit `INDEX.md`.
+   `CONTRIBUTING.md`. One commit per entry, so every commit is
+   self-contained. Never hand-edit `INDEX.md`: the pre-commit hook rebuilds
+   it (enable once per clone with `git config core.hooksPath .githooks`).
 3. Have several entries ready at once? Put them in one PR, not several.
    Separate PRs opened close together both touch `INDEX.md` and conflict.
 4. Open a pull request using the PR template.
