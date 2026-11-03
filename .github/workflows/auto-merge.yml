@@ -16,7 +16,11 @@ jobs:
     if: startsWith(github.event.pull_request.head.ref, 'knowledge/')
     runs-on: ubuntu-latest
     steps:
-      - name: Require this PR only touches entries/ and INDEX.md
+      # A PR that touches files outside entries/ and INDEX.md needs a human.
+      # Mark it ineligible and skip the merge instead of failing the check,
+      # so a red check always means something.
+      - name: Check the PR only touches entries/ and INDEX.md
+        id: gate
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -24,20 +28,35 @@ jobs:
           files=$(gh pr view "$PR_URL" --json files -q '.files[].path')
           echo "$files"
           if echo "$files" | grep -vqE '^entries/|^INDEX\.md$'; then
-            echo "PR touches files outside entries/ and INDEX.md, refusing to auto-merge."
-            exit 1
+            echo "PR touches files outside entries/ and INDEX.md; leaving it for review."
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "eligible=true" >> "$GITHUB_OUTPUT"
           fi
 
       # Merge as the App: GITHUB_TOKEN merges skip branch auto-delete and
       # post-merge workflows.
       - uses: actions/create-github-app-token@v2
+        if: steps.gate.outputs.eligible == 'true'
         id: app-token
         with:
           app-id: ${{ vars.AUTOMERGE_APP_ID }}
           private-key: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
 
       - name: Enable auto-merge
+        if: steps.gate.outputs.eligible == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           PR_URL: ${{ github.event.pull_request.html_url }}
-        run: gh pr merge --auto --squash "$PR_URL"
+        run: |
+          # The pull_request event can fire before the validate check settles,
+          # and GitHub refuses auto-merge on an unstable head. Retry briefly.
+          for attempt in 1 2 3 4 5; do
+            if gh pr merge --auto --squash "$PR_URL"; then
+              exit 0
+            fi
+            echo "attempt $attempt failed, retrying in 20s"
+            sleep 20
+          done
+          echo "could not enable auto-merge; merge by hand"
+          exit 1
