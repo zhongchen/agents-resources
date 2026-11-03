@@ -147,15 +147,17 @@ example.
 ## Workflow
 
 1. Branch: `knowledge/<topic>-<slug>`, or a batch name for several entries.
-2. Add or edit entries. One commit per entry, each running
-   `python scripts/build_index.py` and including the updated `INDEX.md`, so
-   every commit is self-contained.
-3. Several entries ready at once: one PR, not several. Separate PRs opened
+2. Enable the hook once per clone: `git config core.hooksPath .githooks`.
+   It rebuilds `INDEX.md` before each commit that touches `entries/` and
+   runs the validator, so the index is never stale.
+3. Add or edit entries. One commit per entry, so every commit is
+   self-contained.
+4. Several entries ready at once: one PR, not several. Separate PRs opened
    close together both touch `INDEX.md` and conflict.
-4. Open a PR with the PR template filled in.
-5. CI validates the entries, confirms `INDEX.md` is up to date, and scans
+5. Open a PR with the PR template filled in.
+6. CI validates the entries, confirms `INDEX.md` is up to date, and scans
    for secret-shaped strings.
-6. On success, the PR auto-merges.
+7. On success, the PR auto-merges.
 
 ## What CI checks
 
