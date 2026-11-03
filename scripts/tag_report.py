@@ -2,6 +2,7 @@
 """Print a Markdown report of tag usage across entries. Always exits 0."""
 import sys
 from collections import defaultdict
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -65,8 +66,47 @@ def main():
             print(f"- `{t}`")
     else:
         print("None.")
+    print()
+
+    print_staleness()
 
     return 0
+
+
+def print_staleness(today=None, max_age_days=90):
+    """Entries old enough to deserve a re-check, and unconfirmed ones."""
+    today = today or date.today()
+    old = []
+    tentative = []
+    for path in sorted(ENTRIES_DIR.rglob("*.md")):
+        fm, _ = parse_frontmatter(path.read_text(encoding="utf-8"))
+        if not fm:
+            continue
+        rel = path.as_posix()
+        if fm.get("confidence") == "tentative":
+            tentative.append(rel)
+        raw = fm.get("date", "")
+        try:
+            age = (today - date.fromisoformat(raw)).days
+        except ValueError:
+            continue
+        if age > max_age_days:
+            old.append((age, rel, raw))
+
+    print(f"## Entries older than {max_age_days} days (re-check the tool version)")
+    if old:
+        for age, rel, raw in sorted(old, reverse=True):
+            print(f"- `{rel}`: {raw}, {age} days")
+    else:
+        print("None.")
+    print()
+
+    print("## Entries with confidence: tentative")
+    if tentative:
+        for rel in tentative:
+            print(f"- `{rel}`")
+    else:
+        print("None.")
 
 
 if __name__ == "__main__":
