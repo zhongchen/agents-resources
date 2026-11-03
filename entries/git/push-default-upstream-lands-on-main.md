@@ -8,6 +8,7 @@ symptoms:
   - "push.default=upstream"
   - "git checkout -b foo origin/main"
   - "git push -u origin foo:foo"
+guard: git config --global push.default=current (set 2026-11-02) - a bare push now follows the branch name, not origin/main
 ---
 
 **Problem:** Running `git push origin <branch>` (or a bare `git push`) appears

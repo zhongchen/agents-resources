@@ -8,6 +8,7 @@ symptoms:
   - "file exists: /tmp/out.json"
   - "setopt noclobber"
   - ">|"
+guard: none - noclobber is deliberate; the fix stays "use >| or a fresh file name"
 ---
 
 **Problem:** `cmd > /tmp/out.json; parse /tmp/out.json` gives old results.
