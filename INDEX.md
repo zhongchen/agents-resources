@@ -9,6 +9,7 @@ Read this file first. Open individual entries only when a topic is relevant.
 
 ## infra
 
+- [ClickHouse `MODIFY TTL` also rewrites every existing part](entries/infra/clickhouse-modify-ttl-materializes-every-part.md) — MODIFY TTL also schedules a MATERIALIZE TTL rewrite of every part, so a big table blows the DDL timeout
 - [ClickHouse quota counters are per node behind a load-balanced endpoint](entries/infra/clickhouse-quota-counters-per-node.md) — Quota limits never trip through a load-balanced endpoint; counters are per node
 - [GITHUB_TOKEN merges don't trigger other push-triggered workflows](entries/infra/github-actions-token-recursion-blocks-post-merge-workflows.md) — Auto-merge via GITHUB_TOKEN skips downstream push workflows on the same branch
 - [Only one quota per user is ever consumed; execution_time bills inter-chunk elapsed only](entries/infra/clickhouse-quota-single-quota-per-user.md) — Attaching multiple quotas to a user silently does nothing; execution_time skips single-block queries
